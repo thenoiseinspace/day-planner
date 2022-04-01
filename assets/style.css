@@ -28,7 +28,7 @@ body {
   .time-block {
     text-align: center;
     border-radius: 15px;
-    border: 2px solid;
+    /*border: 2px solid;*/
   }
   
   .row {
@@ -39,38 +39,31 @@ body {
   }
 /*begin stuff i've messed with*/
   .col-sm-3{
-      border: 1px solid; 
+      border-left: 1px solid; 
+      border-top: 1px solid;
   }
 
   .col-md-6{
-      border: 1px solid; 
+    border-left: 1px solid; 
+    border-top: 1px solid;
   }
 
   .right{
     background-color: skyblue; 
+    border-right: 1px solid; 
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
   }
 
-  .lock {
-    background: gray;
-    border-radius: 3px;
-    width: 25px;
-    height: 20px;
-    margin-top: 60px;
-    margin-left: 60px;
-    position: relative;
+  .left{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
   }
-  
-  .lock:before {
-    content: "";
-    display: block;
-    position: absolute;
-    border:3px solid gray;
-    top: -14px;
-    left: 2.3px;
-    width: 15px;
-    height: 27px;
-    border-radius: 35px 35px 0 0;
+
+  .fas{
+      font-size: larger;
   }
+
 
 /*end*/
   
