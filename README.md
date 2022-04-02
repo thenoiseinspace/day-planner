@@ -5,6 +5,7 @@ This is a simple calendar application that allows the user to save events for ea
 Click on the middle column to add an item, and then click the save icon in the right column to save it to the planner. 
 
 Github links: 
+
 GitHub repo link: https://github.com/thenoiseinspace/day-planner
 
 Live deployment link: https://thenoiseinspace.github.io/day-planner
@@ -46,14 +47,3 @@ This homework is graded based on the following criteria:
 ### Deployment: 32%
 
 * Application loads with no errors
-
-
-### Repository Quality: 13%
-
-* Repository has a unique name
-
-* Repository follows best practices for file structure and naming conventions
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages

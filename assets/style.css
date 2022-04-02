@@ -38,7 +38,7 @@ body {
     
   }
 /*begin stuff i've messed with*/
-  .col-sm-3{
+  /* .col-sm-3{
       border-left: 1px solid; 
       border-top: 1px solid;
   }
@@ -46,9 +46,13 @@ body {
   .col-md-6{
     border-left: 1px solid; 
     border-top: 1px solid;
+  } */
+
+  .col-md-10{
+      border: 1px solid; 
   }
 
-  .right{
+  .save-button{
     background-color: skyblue; 
     border-right: 1px solid; 
     border-top-right-radius: 15px;
@@ -58,6 +62,7 @@ body {
   .left{
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    border: 1px solid; 
   }
 
   .fas{
