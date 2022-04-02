@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--linking outstide sheets and libraries-->
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -27,148 +32,77 @@
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
+      <p id="currentTime" class="lead"></p>
     </header>
-    <div class="container">
-      <!-- Timeblocks go here -->
+    
+<!-- Begin timeblocks -->
+<!--Pulling in a column grid from Bootstrap and a Font Awesome lock icon-->
+<!--Setting side columns with classes for styling and center with ID for targeting-->
+ <!--Setting center columns as a text area and right columns as buttons-->
 
-
-      <!--Pulling in a column grid from Bootstrap and a Font Awesome lock icon-->
-      <!--Setting side columns with classes for styling and center with ID for targeting-->
-        
       <div class="time-block">
       
         <div class="container">
-            
-            <div class="row">
+
+            <div class="row" id="nine">
               <div class="col-md-1 left">9:00 AM</div>
-              <textarea class="col-md-10" id="nine-block"></textarea>
-              <button class="save-button"><i class='col-md-1 fas fa-save'></i></button>
+              <textarea class="col-md-10" id="nine-block" name="nine-block">
+              </textarea>
+              <button class="col-right save-button"><i class='col-md-1 fas fa-save'></i></button>
             </div>
 
-            <div class="row">
+            <div class="row" id="ten">
                 <div class="col-md-1 left">10:00 AM</div>
-                <textarea class="col-md-10" id="ten-block"></textarea>
-                <button class="save-button"><i class='col-md-1 fas fa-save'></i></button>
+                <textarea class="col-md-10" id="ten-block"> 
+                </textarea>
+                <button class="col-right save-button"><i class='col-md-1 fas fa-save'></i></button>
             </div>
 
-            <div class="row">
+            <div class="row" id="eleven">
                 <div class="col-md-1 left">11:00 AM</div>
                 <textarea class="col-md-10" id="eleven-block"></textarea>
-                <button class="save-button"><i class='col-md-1 fas fa-save'></i></button>
+                <button class="col-right save-button"><i class='col-md-1 fas fa-save'></i></button>
             </div>
 
-            <div class="row">
+            <div class="row" id="twelve">
                 <div class="col-md-1 left">12:00 PM</div>
                 <textarea class="col-md-10" id="twelve-block"></textarea>
-                <button class="save-button"><i class='col-md-1 fas fa-save'></i></button>
+                <button class="col-right save-button"><i class='col-md-1 fas fa-save'></i></button>
             </div>
-
-            <div class="row">
+            <!--note the use of 13 instead of 1, switch to military time for the IDs-->
+            <div class="row" id="thirteen">
                 <div class="col-md-1 left">1:00 PM</div>
                 <textarea class="col-md-10" id="one-block"></textarea>
-                <button class="save-button"><i class='col-md-1 fas fa-save'></i></button>
+                <button class="col-right save-button"><i class='col-md-1 fas fa-save'></i></button>
             </div>
 
-            <div class="row">
+            <div class="row" id="fourteen">
                 <div class="col-md-1 left">2:00 PM</div>
                 <textarea class="col-md-10" id="two-block"></textarea>
-                <button class="save-button"><i class='col-md-1 fas fa-save'></i></button>
+                <button class="col-right save-button"><i class='col-md-1 fas fa-save'></i></button>
             </div>
 
-            <div class="row">
+            <div class="row" id="fifteen">
                 <div class="col-md-1 left">3:00 PM</div>
                 <textarea class="col-md-10" id="three-block"></textarea>
-                <button class="save-button"><i class='col-md-1 fas fa-save'></i></button>
+                <button class="col-right save-button"><i class='col-md-1 fas fa-save'></i></button>
             </div>
 
-            <div class="row">
+            <div class="row" id="sixteen">
                 <div class="col-md-1 left">4:00 PM</div>
                 <textarea class="col-md-10" id="four-block"></textarea>
-                <button class="save-button"><i class='col-md-1 fas fa-save'></i></button>
+                <button class="col-right save-button"><i class='col-md-1 fas fa-save'></i></button>
             </div>
 
-            <div class="row">
+            <div class="row" id="seventeen">
                 <div class="col-md-1 left">5:00 PM</div>
                 <textarea class="col-md-10" id="five-block"></textarea>
-                <button class="save-button"><i class='col-md-1 fas fa-save'></i></button>
+                <button class="col-right save-button"><i class='col-md-1 fas fa-save'></i></button>
             </div>
-
-<!-- 
-            <div class="row">
-                <div class="col-sm-3 left">9:00 AM</div>
-                <textarea class="col-md-10" id="nineBlock"></textarea>
-                <div class="col-md-6" >
-                    <button class="save-button"><i class='col-md-1 fas fa-save'></i></button>
-                </div>
-            </div> -->
-
-
-            <!-- <div class="row">
-                <div class="col-sm-3 left">9:00 AM</div>
-                <div class="col-md-6"> -->
-                    <!-- <label for="scheduledEvent">Your event:</label>
-                    <input type="text" id="nine-block" name="scheduledEvent"> -->
-                    <!-- <textarea class="col-md-10" id="nineBlock"></textarea>
-                </div>
-                <div class="col-sm-3 right"><i class='fas fa-save'></i></div>
-            </div> -->
-
-
-            <!-- <div class="row">
-                <div class="col-sm-3 left">10:00 AM</div>
-                <div class="col-md-6" >
-                    <label for="scheduledEvent">Your event:</label>
-                    <input type="text" id="ten-block" name="scheduledEvent">
-                </div>
-                <div class="col-sm-3 right"><i class='fas fa-save'></i></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3 left">11:00 AM</div>
-                <div class="col-md-6">
-                    <label for="scheduledEvent">Your event:</label>
-                    <input type="text" id="eleven-block" name="scheduledEvent">
-                </div>
-                <div class="col-sm-3 right"><i class='fas fa-save'></i></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3 left">12:00 PM</div>
-                <div class="col-md-6" id="twelve-block"></div>
-                <div class="col-sm-3 right"><i class='fas fa-save'></i></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3 left">1:00 PM</div>
-                <div class="col-md-6" id="one-block"></div>
-                <div class="col-sm-3 right"><i class='fas fa-save'></i></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3 left ">2:00 PM</div>
-                <div class="col-md-6" id="two-block"></div>
-                <div class="col-sm-3 right"><i class='fas fa-save'></i></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3 left">3:00 PM </div>
-                <div class="col-md-6" id="three-block"></div>
-                <div class="col-sm-3 right"><i class='fas fa-save'></i></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3 left">4:00 PM</div>
-                <div class="col-md-6" id="four-block"></div>
-                <div class="col-sm-3 right "><i class='fas fa-save'></i></div>
-            </div>
-            <div class="row">
-                <div class="col-sm-3 left">5:00 PM</div>
-                <div class="col-md-6" id="five-block"></div>
-                <div class="col-sm-3 right"><i class='fas fa-save'></i></div>
-            </div>
-          </div> -->
-
       </div>
 
 
-
-
-    </div>
-
+<!--Linking remaining libraries here-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script type="text/javascript" src="./assets/script.js">

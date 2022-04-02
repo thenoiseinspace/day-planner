@@ -12,6 +12,9 @@ Live deployment link: https://thenoiseinspace.github.io/day-planner
 
 Screenshots (also included in assets folder): 
 
+Acknowledgements:
+HUGE thank you to James Edwards and Lina Choi! 
+
 ```
 
 ## Acceptance Criteria

@@ -1,79 +1,55 @@
-//Starting by setting up variables for each center-column time block
-var nineOclock = document.querySelector("#nine-block"); 
-var tenOclock = document.querySelector("#ten-block"); 
-var elevenOclock = document.querySelector("#eleven-block"); 
-var twelveOclock = document.querySelector("#twelve-block"); 
-var oneOclock = document.querySelector("#one-block"); 
-var twoOclock = document.querySelector("#two-block"); 
-var threeOclock = document.querySelector("#three-block"); 
-var fourclock = document.querySelector("#four-block"); 
-var fiveOclock = document.querySelector("#five-block"); 
-var saveButton = document.querySelectorAll(".save-button"); 
+// Current date  and time to display on the top of the page
+var today = moment();
+$('#currentDay').text(today.format('dddd, MMM Do, YYYY'));
+var currentTime = moment();
+$("#currentTime").text(currentTime.format('hh:mm a'));
 
-var saveContent = function (){
+// retrieving the values from local storage to put onto the page
+$('#nine .task').val(localStorage.getItem('nine'));
+$('#ten .task').val(localStorage.getItem('ten'));
+$('#eleven .task').val(localStorage.getItem('eleven'));
+$('#twelve .task').val(localStorage.getItem('twelve'));
+$('#thirteen .task').val(localStorage.getItem('thirteen'));
+$('#fourteen .task').val(localStorage.getItem('fourteen'));
+$('#fifteen .task').val(localStorage.getItem('fifteen'));
+$('#sixteen .task').val(localStorage.getItem('sixteen'));
+$('#seventeen .task').val(localStorage.getItem('seventeen'));
 
-}
-
-for(var i = 0; i<saveButton.length; i++){
-    saveButton[i].addEventListener("click", saveContent)
-}
-
-//this keyword, dom traversal, local storage set not get for this function, when it gets clicked set it to local storage, don't get it until one of the last things in the program file, for loop is done but function needs stuff 
-
-//Setting up local storage of each time block--these will only accept strings
-//can I use an array for this? 
+// function to add task to local storage based on the time
+var saveButtonEl = $('.save-button');
 
 
-//Setting up a function to take in user input
-//based on 5-6
-var nineEventlistEl = $('#nine-event-list'); 
+saveButtonEl.on('click', function() {
+    // parent element for submit button and then selecting attr id
+    var time = $(this).parent().attr('id');
+    // sibling element for submit button and the selecting value for class task
+    // target this level. then siblings. specifically the class = task. then the value.
+    var task = $(this).siblings('.task').val();
+    console.log(time);
+    console.log(task);
+    // local storage key & value
+    localStorage.setItem(time, task);
+})
 
-function handleFormSubmit(){
+// function to color the timeblocks to show future, present, or past
+// .each for a for loop
+// this calls the function so we dont have to call it 
+$('.task').each(function () {
 
-    var eventForNine = $('input[name="nine-event-list"]').val(''); 
+    // making the current time into 24 hr format so that it's easier to compare
+    var currentTime24 = today.format('HH');
+    console.log(currentTime24);
 
-    if (!eventForNine){
-        console.log("No item for 9:00");
-        return; 
+    // parseInt makes the string return as a integer
+    var hourTime = parseInt($(this).parent().attr('id'));
+    console.log(hourTime);
+
+    // This is the part that flips the color according to what's already in the css file
+    if (hourTime == currentTime24) {
+        $(this).addClass('present');
+    } else if (hourTime > currentTime24) {
+        $(this).addClass('future');
+    } else {
+        $(this).addClass('past');
     }
-    nineEventlistEl.append('<li>' + eventForNine + '</li>'); 
-
-    $('input[name="scheduledEvent"]').val('');
-    console.log("this is linked"); 
-}
-
-nineEventlistEl.on('submit', handleFormSubmit); 
-
-//handleFormSubmit(); 
-//put event listener on button
-
-
-
-
-//based on 4-26
-// function renderToDos(){
-//     9block.innerHTML=""; 
-//     todos
-// }
-
-
-//check activity 5-6
-//Settinng up event listeners - based on exercise 4-23
-// nineOclock.addEventListener("click", function(event) {
-//     event.preventDefault();
-    
-//     var nineActivity = {
-//       nineOclock: nineOclock.value. trim(), 
-//     };
-    
-//     localStorage.setItem("nineActivity", JSON.stringify(nineActivity));
-//     renderMessage();
-//     });
-
-//     function renderMessage() {
-//         var displayNineBlock = JSON.parse(localStorage.getItem("nineActivity"));
-//         if (displayNineBlock !== null) {
-//           document.querySelector(".message").textContent = displayNineBlock.nineOclock 
-//         }
-//       }
-      
+});
