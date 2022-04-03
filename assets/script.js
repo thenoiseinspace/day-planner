@@ -6,14 +6,14 @@ $("#currentTime").text(currentTime.format('hh:mm a'));
 
 // retrieving the values from local storage to put onto the page
 $('#9 .task').val(localStorage.getItem('9'));
-$('#ten .task').val(localStorage.getItem('ten'));
-$('#eleven .task').val(localStorage.getItem('eleven'));
-$('#twelve .task').val(localStorage.getItem('twelve'));
-$('#thirteen .task').val(localStorage.getItem('thirteen'));
-$('#fourteen .task').val(localStorage.getItem('fourteen'));
-$('#fifteen .task').val(localStorage.getItem('fifteen'));
-$('#sixteen .task').val(localStorage.getItem('sixteen'));
-$('#seventeen .task').val(localStorage.getItem('seventeen'));
+$('#10 .task').val(localStorage.getItem('10'));
+$('#11 .task').val(localStorage.getItem('11'));
+$('#12 .task').val(localStorage.getItem('12'));
+$('#13 .task').val(localStorage.getItem('13'));
+$('#14 .task').val(localStorage.getItem('14'));
+$('#15 .task').val(localStorage.getItem('15'));
+$('#16 .task').val(localStorage.getItem('16'));
+$('#17 .task').val(localStorage.getItem('17'));
 
 // function to add task to local storage based on the time
 var saveButtonEl = $('.save-button');
