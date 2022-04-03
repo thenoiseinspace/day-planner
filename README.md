@@ -14,4 +14,4 @@ Screenshots (also included in assets folder):
 <img src="https://github.com/thenoiseinspace/day-planner/blob/main/assets/screenshot.png">
 
 Acknowledgements:
-HUGE thank you to James Edwards and Lina Choi! 
+HUGE thank you to James Edwards and Lina Choi! We had a smaller study group (instead of the regular one with everyone) and it worked very well for me. They are very good at explaining concepts. 

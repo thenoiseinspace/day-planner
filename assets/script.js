@@ -1,50 +1,58 @@
-// Current date  and time to display on the top of the page
+//////////////////////////////
+//DAY AND TIME FUNCTIONALITY//
+//////////////////////////////
+
+// This displays the date and time at the top of the page
 var today = moment();
 $('#currentDay').text(today.format('dddd, MMM Do, YYYY'));
 var currentTime = moment();
 $("#currentTime").text(currentTime.format('hh:mm a'));
 
-// retrieving the values from local storage to put onto the page
-$('#9 .task').val(localStorage.getItem('9'));
-$('#10 .task').val(localStorage.getItem('10'));
-$('#11 .task').val(localStorage.getItem('11'));
-$('#12 .task').val(localStorage.getItem('12'));
-$('#13 .task').val(localStorage.getItem('13'));
-$('#14 .task').val(localStorage.getItem('14'));
-$('#15 .task').val(localStorage.getItem('15'));
-$('#16 .task').val(localStorage.getItem('16'));
-$('#17 .task').val(localStorage.getItem('17'));
+////////////////////////////
+///////LOCAL STORAGE///////
+////////////////////////////
 
-// function to add task to local storage based on the time
+// This uses the ID and class from each of the time blocks to identify the right text block and get it from local storage
+$('#9 .thingToDo').val(localStorage.getItem('9'));
+$('#10 .thingToDo').val(localStorage.getItem('10'));
+$('#11 .thingToDo').val(localStorage.getItem('11'));
+$('#12 .thingToDo').val(localStorage.getItem('12'));
+$('#13 .thingToDo').val(localStorage.getItem('13'));
+$('#14 .thingToDo').val(localStorage.getItem('14'));
+$('#15 .thingToDo').val(localStorage.getItem('15'));
+$('#16 .thingToDo').val(localStorage.getItem('16'));
+$('#17 .thingToDo').val(localStorage.getItem('17'));
+
+////////////////////////////
+//SAVE BUTTON FUNCTIONALITY//
+////////////////////////////
+
+// Setting up the save button for each line--start by creating the variable for the element and selecting the class for all the buttons
 var saveButtonEl = $('.save-button');
 
-
+//When the buttons are clicked, it runs the function that calls the parent element and selects the attribute 
+//The button's sibling is the neighboring text field in the same div. Targets the value.
+//Sets to local storage 
 saveButtonEl.on('click', function() {
-    // parent element for submit button and then selecting attr id
     var time = $(this).parent().attr('id');
-    // sibling element for submit button and the selecting value for class task
-    // target this level. then siblings. specifically the class = task. then the value.
-    var task = $(this).siblings('.task').val();
+    var thingToDo = $(this).siblings('.thingToDo').val();
     console.log(time);
-    console.log(task);
-    // local storage key & value
-    localStorage.setItem(time, task);
+    console.log(thingToDo);
+    localStorage.setItem(time, thingToDo);
 })
 
-// function to color the timeblocks to show future, present, or past
-// .each for a for loop
-// this calls the function so we dont have to call it 
-$('.task').each(function () {
+////////////////////////////
+//////CHANGING COLORS//////
+////////////////////////////
 
-    // making the current time into 24 hr format so that it's easier to compare
+//The classes and colors were already given for each time category. This calls a function to loop through each time block and check the time
+//The if statement compares the time block to the current time and applies the appropriate class
+
+$('.thingToDo').each(function () {
     var currentTime24 = today.format('HH');
     console.log(currentTime24);
-
-    // parseInt makes the string return as a integer
     var hourTime = parseInt($(this).parent().attr('id'));
     console.log(hourTime);
-
-    // This is the part that flips the color according to what's already in the css file
     if (hourTime == currentTime24) {
         $(this).addClass('present');
     } else if (hourTime > currentTime24) {
