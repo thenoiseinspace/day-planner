@@ -11,6 +11,7 @@ GitHub repo link: https://github.com/thenoiseinspace/day-planner
 Live deployment link: https://thenoiseinspace.github.io/day-planner
 
 Screenshots (also included in assets folder): 
+<img src="https://github.com/thenoiseinspace/day-planner/blob/main/assets/screenshot.png">
 
 Acknowledgements:
 HUGE thank you to James Edwards and Lina Choi! 
